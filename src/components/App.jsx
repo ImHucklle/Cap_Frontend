@@ -5,6 +5,7 @@ import Header from './Header/Header';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import Search  from './Search/Search';
+// import Recipes from './Recipes/Recipes';
 
 function App() {
  
@@ -13,6 +14,7 @@ function App() {
               <Header />
               <Switch>
                 <Route path="/search" component={Search} />
+                {/* <Route path="/recipes" component={Recipes} /> */}
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
               </Switch>

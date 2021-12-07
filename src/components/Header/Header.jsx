@@ -4,7 +4,7 @@ function Header(){
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/home">Whats To Eat</a>
+          <a className="navbar-brand" href="/home">What's To Eat</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -20,7 +20,7 @@ function Header(){
                 <a className="nav-link" href="/register">Register</a>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown link
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
