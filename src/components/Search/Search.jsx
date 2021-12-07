@@ -3,14 +3,15 @@ import { ID, API } from '../keys';
 import axios from 'axios';
 
 const Search = () => {
-    const[searchResults, setResults]
+    const[searchResults, setResults] = useState([])
     
     useEffect(() =>{
+        getRecipes();
         console.log('Effect ran..')
-    });
+    }, []);
 
     const getRecipes = async () => {
-        const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=${ID}&app_key=${API}`);
+        const response = await axios.get(`https://api.edamam.com/api/recipes/v2?type=public&q=pizza&app_id=${ID}&app_key=${API}`);
         setResults(response.data);
         console.log(response.data)
     }
