@@ -16,7 +16,8 @@ class Register extends Component {
         console.log('submit')
     }
 
-    onChange = e => this.setState({ [e.target.name]: e.target.value});
+    onChange = e => this.setState({ 
+        [e.target.name]: e.target.value});
 
     render() {
         const {username, first_name, last_name, email, password} = this.state;

@@ -4,7 +4,7 @@ import './App.css';
 import Header from './Header/Header';
 import Login from './Login/Login';
 import Register from './Register/Register';
-import Landing  from './Landing/Landing';
+import Search  from './Search/Search';
 
 function App() {
  
@@ -12,7 +12,7 @@ function App() {
             <Router>
               <Header />
               <Switch>
-                <Route exact path="/" component={Landing} />
+                <Route path="/search" component={Search} />
                 <Route path="/register" component={Register} />
                 <Route path="/login" component={Login} />
               </Switch>

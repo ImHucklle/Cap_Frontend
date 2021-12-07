@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
-    state = {
-        username: '',
-        password: ''
+    constructor(props){
+        super(props)
+        this.state = {
+            username:'',            
+            password:''
+        }
     }
 
     onSubmit = e => {
