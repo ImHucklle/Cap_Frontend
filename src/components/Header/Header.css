@@ -1,0 +1,17 @@
+.navbar {
+    height: 10vh;
+    background: #3a3a3a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-logo {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 15 rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10rem;
+}

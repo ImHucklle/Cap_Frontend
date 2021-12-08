@@ -1,14 +1,14 @@
-* {
+/* * {
     font-family: "Didot", serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style-type: none;
     outline: none;
-  }
+  } */
   
   html {
-    font-size: 62.5%;
+    font-size: 85%;
   }
   
   .Search {
@@ -18,7 +18,7 @@
   }
   
   h1 {
-    font-size: 6rem;
+    font-size: 4rem;
     letter-spacing: 0.1rem;
     font-style: italic;
     color: #3a3a3a;
@@ -51,7 +51,7 @@
   }
   
   .alert h3 {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     color: #fff;
     font-weight: 400;
     text-transform: uppercase;
@@ -90,8 +90,8 @@
   }
   
   .recipe {
-    width: 30rem;
-    margin: 3rem;
+    width: 20rem;
+    margin: 2.5rem;
     display: flex;
     flex-direction: column;
     background-color: #d3d3d3;

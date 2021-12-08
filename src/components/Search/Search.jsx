@@ -41,7 +41,7 @@ const Search = () => {
             <h1>What's To Eat?</h1>
             <form className="search-form" onSubmit={onSubmit}>
                 {alert !=="" && <Alert alert={alert} />}
-                <input type="text" placeholder="Hmmm.. I'm want to make"
+                <input type="text" placeholder="Hmmm.. I want to make"
                 autoComplete="off" onChange={onChange} value={query}/>
                 <input type="submit" value="search"/>
             </form>
