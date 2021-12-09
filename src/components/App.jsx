@@ -15,7 +15,7 @@ function App() {
     <Router>
       <Header />
         <Switch>
-          <Route path="/profile" component={Profile}/>
+          <Route path="/profile" component={Profile} logout={logOut}/>
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
           <Route path="/search" component={Search} />

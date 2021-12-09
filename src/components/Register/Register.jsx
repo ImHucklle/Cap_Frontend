@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 const Register = () => {
     const[userName, setUserName]= useState("");
@@ -15,9 +16,9 @@ const Register = () => {
             "username": userName,
             "password": password,
             "email": email,
-            "firstName": firstName,
-            "lastName": lastName,
-            "middleName": middleName
+            "first_name": firstName,
+            "last_name": lastName,
+            "middle_name": middleName
         }
         console.log("Registered user info:", payload)
         let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', payload);
@@ -40,7 +41,6 @@ const Register = () => {
                 <input type='text' onChange={(e)=>setLastName(e.target.value)}></input>
                 <label>Middle Name</label>
                 <input type='text' onChange={(e)=>setMiddleName(e.target.value)}></input>
-
                 <button type='submit'>Login</button>
             </form>
         </div>
