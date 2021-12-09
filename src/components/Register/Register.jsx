@@ -1,90 +1,50 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import './Register.css'
+import React, {useState} from 'react';
+import axios from 'axios';
 
-class Register extends Component {
-    state = {
-        username: '',
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-    }
+const Register = () => {
+    const[userName, setUserName]= useState("");
+    const[password, setPassword]= useState("");
+    const[email, setEmail] = useState("");
+    const[firstName, setFirstName] = useState("");
+    const[lastName, setLastName] = useState("");
+    const[middleName, setMiddleName] = useState("");
 
-    onSubmit = e => {
+    const onSubmit = async (e)=>{
         e.preventDefault();
-        console.log('submit')
-    }
+        let payload = {
+            "username": userName,
+            "password": password,
+            "email": email,
+            "firstName": firstName,
+            "lastName": lastName,
+            "middleName": middleName
+        }
+        console.log("Registered user info:", payload)
+        let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', payload);
+        console.log("New user data sent: ", response.data)
+    };
 
-    onChange = e => this.setState({ 
-        [e.target.name]: e.target.value});
 
-    render() {
-        const {username, first_name, last_name, email, password} = this.state;
-        return (
-            <div className="col-md-6 m-auto">
-                <div className="card card-body mt-5">
-                    <h2 className="text-center">Register</h2>
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <label>Username</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="username"
-                                onChange={this.onChange}
-                                value={username} />
-                        </div>
-                        <div className="form-group">
-                            <label>First Name</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="first_name"
-                                onChange={this.onChange}
-                                value={first_name} />
-                        </div>
-                        <div className="form-group">
-                            <label>Last Name</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="last_name"
-                                onChange={this.onChange}
-                                value={last_name} />
-                        </div>
-                        <div className="form-group">
-                            <label>E-Mail</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="email"
-                                onChange={this.onChange}
-                                value={email} />
-                        </div>
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="password"
-                                onChange={this.onChange}
-                                value={password} />
-                        </div>
-                        <div className="form-group">
-                            <button type="submit" className="btn
-                            btn-primary">
-                                Register
-                            </button>
-                        </div>
-                        <p>
-                            Already have an account? <Link
-                            to="/login">Login</Link>
-                        </p>
-                    </form>
-                </div>
-            </div>
-        )
-    }
-}
+    return (
+        <div className="Register">
+            <form className="register-form" onSubmit={onSubmit}>
+                <label>UserName</label>
+                <input type='text' onChange={(e)=>setUserName(e.target.value)}></input>
+                <label>Password</label>
+                <input type='password' onChange={(e)=>setPassword(e.target.value)}></input>
+                <label>Email</label>
+                <input type='text' onChange={(e)=>setEmail(e.target.value)}></input>
+                <label>First Name</label>
+                <input type='text' onChange={(e)=>setFirstName(e.target.value)}></input>
+                <label>Last Name</label>
+                <input type='text' onChange={(e)=>setLastName(e.target.value)}></input>
+                <label>Middle Name</label>
+                <input type='text' onChange={(e)=>setMiddleName(e.target.value)}></input>
+
+                <button type='submit'>Login</button>
+            </form>
+        </div>
+    )
+};
+
 export default Register;

@@ -1,62 +1,61 @@
-import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css';
+import React, {useState, useEffect} from "react";
+import axios from 'axios';
+import jwtDecode from 'jwt-decode';
 
-class Login extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            username:'',            
-            password:''
-        }
-    }
-
-    onSubmit = e => {
+const Login = () => {
+    const[userName, setUserName]= useState("");
+    const[password, setPassword]= useState("");
+    const [currentUser, setCurrentUser] = useState();
+    const [jwt, setJwt] = useState();
+  
+    function getJWT() {
+      const jwt = localStorage.getItem('token');
+      setJwt(jwt);
+    };
+  
+    function getUser() {
+      try{
+        const user = jwtDecode(jwt);
+        console.log(user)
+        setCurrentUser(user)
+      } catch {
+      }
+    };
+  
+    useEffect(()=> {
+        getJWT();
+    },[])
+    useEffect(()=> {
+        console.log(jwt)
+        getUser();
+    },[jwt])
+  
+    const onSubmit = async (e)=>{
         e.preventDefault();
-        console.log('submit')
-    }
+        let user ={
+            "username": userName,
+            "password": password,
+        }
+        console.log("User Info: ", user)
+        let response = await axios.post('http://127.0.0.1:8000/api/auth/login/', user);
+        console.log("Token results are: ", response.data)
+        // add response to local storage.
+        localStorage.setItem("token", response.data.access)
+        localStorage.setItem("refresh", response.data.refresh)
+        getJWT()
+    };
+    
+    return (
+      <div className="Login">
+        <form className="login-form" onSubmit={onSubmit}>
+            <label>UserName</label>
+            <input type='text' onChange={(e)=>setUserName(e.target.value)}></input>
+            <label>Password</label>
+            <input type='password' onChange={(e)=>setPassword(e.target.value)}></input>
+            <button type='submit'>Login</button>
+        </form>
+      </div>
+    )
+};
 
-    onChange = e => this.setState({ [e.target.name]: e.target.value});
-
-    render() {
-        const {username, password} = this.state;
-        return (
-            <div className="col-md-6 m-auto">
-                <div className="card card-body mt-5">
-                    <h2 className="text-center">Login</h2>
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <label>Username</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="username"
-                                onChange={this.onChange}
-                                value={username} />
-                        </div>
-                        <div className="form-group">
-                            <label>Password</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="password"
-                                onChange={this.onChange}
-                                value={password} />
-                        </div>
-                        <div className="form-group">
-                            <button type="submit" className="btn
-                            btn-primary">
-                                Login
-                            </button>
-                        </div>
-                        <p>
-                            Don't have an account? <Link
-                            to="/register">Register</Link>
-                        </p>
-                    </form>
-                </div>
-            </div>
-        )
-    }
-}
 export default Login;
