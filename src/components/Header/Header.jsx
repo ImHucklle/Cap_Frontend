@@ -12,13 +12,13 @@ function Header(){
   return (
     <>
       <nav className="navbar">
-        <Link to="/" className="navbar-logo">
+        <Link to="/search" className="navbar-logo">
           W2E
           <Icons.BiFoodMenu />
         </Link>
         <ul className="nav-items">
           {navItems.map((item) => {
-            if (item.title === "Services") {
+            if (item.title === "Login") {
               return (
                 <li
                   key={item.id}

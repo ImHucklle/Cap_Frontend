@@ -2,25 +2,19 @@ export const navItems = [
     {
       id: 1,
       title: "Home",
-      path: "./",
+      path: "./search",
       cName: "nav-item",
     },
     {
       id: 2,
-      title: "Services",
-      path: "./services",
+      title: "Login",
+      path: "./Login",
       cName: "nav-item",
     },
     {
       id: 3,
-      title: "Products",
-      path: "./products",
-      cName: "nav-item",
-    },
-    {
-      id: 4,
-      title: "Contact Us",
-      path: "./contactus",
+      title: "Profile",
+      path: "./profile",
       cName: "nav-item",
     },
   ];
@@ -28,26 +22,26 @@ export const navItems = [
   export const serviceDropdown = [
     {
       id: 1,
-      title: "Marketing",
-      path: "./marketing",
+      title: "Make a Review",
+      path: "./review",
       cName: "submenu-item",
     },
     {
       id: 2,
-      title: "Consulting",
-      path: "./consulting",
+      title: "Saved Recipes",
+      path: "./saved",
       cName: "submenu-item",
     },
     {
       id: 3,
-      title: "Design",
-      path: "./design",
+      title: "About Us",
+      path: "./about",
       cName: "submenu-item",
     },
     {
       id: 4,
-      title: "Development",
-      path: "./development",
+      title: "Contact Us",
+      path: "./contact",
       cName: "submenu-item",
     },
   ];
