@@ -10,7 +10,6 @@ import Profile from './Profile/Profile';
 
 function App() {
   
-
   return (   
     <Router>
       <Header />

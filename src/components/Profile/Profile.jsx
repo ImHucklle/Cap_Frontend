@@ -1,24 +1,28 @@
-import React from 'react';
-import { Redirect } from 'react-router';
+import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
-const Profile = () => {
-
-    const logOut = ()=>{
-        localStorage.removeItem("token");
-        setUser({})
-        console.log("User has logged out")
+class Profile extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        logout: "",
+      };
     }
 
     handleLogout = async (event) => {
         this.props.logout();
       };
 
-
-    return (
-        <div>
-            
-        </div>
-    )
+    render(){
+        return (
+            <div>
+                <h1>Profile</h1>
+                <Link to="/login" onClick={this.handleLogout}>
+                    Logout Here
+                </Link>
+            </div>
+        )
+    }
 }
 
 export default Profile

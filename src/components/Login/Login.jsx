@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router-dom';
 
 const Login = () => {
     const[userName, setUserName]= useState("");
@@ -30,6 +30,12 @@ const Login = () => {
         console.log(jwt)
         getUser();
     },[jwt])
+
+    const logOut = ()=>{
+        localStorage.removeItem("token");
+        setCurrentUser({})
+        console.log("User has logged out")
+    }
   
     const onSubmit = async (e)=>{
         e.preventDefault();
