@@ -50,16 +50,18 @@ const Login = () => {
 
 
   return (
+    <div className="container">
       <div className="Login">
-        <form className="login-form" onSubmit={onSubmit}>
+        <form className="form" onSubmit={onSubmit}>
             <label>UserName</label>
             <input type='text' onChange={(e)=>setUserName(e.target.value)}></input>
             <label>Password</label>
             <input type='password' onChange={(e)=>setPassword(e.target.value)}></input>
-            <button className="login-button" type='submit'>Login</button>
+            <button type='submit'>Login</button>
         </form>
       </div>
-    )
+    </div>
+  )
 };
 
 export default Login;

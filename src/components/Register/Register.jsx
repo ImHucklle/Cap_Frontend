@@ -30,7 +30,7 @@ const Register = () => {
 
     return (
         <div className="Register">
-            <form className="register-form" onSubmit={onSubmit}>
+            <form className="form" onSubmit={onSubmit}>
                 <label>UserName</label>
                 <input type='text' onChange={(e)=>setUserName(e.target.value)}></input>
                 <label>Password</label>
@@ -43,7 +43,7 @@ const Register = () => {
                 <input type='text' onChange={(e)=>setLastName(e.target.value)}></input>
                 <label>Middle Name</label>
                 <input type='text' onChange={(e)=>setMiddleName(e.target.value)}></input>
-                <button className="register-button" type='submit'>Login</button>
+                <button type='submit'>Login</button>
             </form>
         </div>
     )
