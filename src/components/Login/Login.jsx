@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import './Login.css';
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 // import { Redirect } from 'react-router-dom';
@@ -55,7 +56,7 @@ const Login = () => {
             <input type='text' onChange={(e)=>setUserName(e.target.value)}></input>
             <label>Password</label>
             <input type='password' onChange={(e)=>setPassword(e.target.value)}></input>
-            <button type='submit'>Login</button>
+            <button className="login-button" type='submit'>Login</button>
         </form>
       </div>
     )

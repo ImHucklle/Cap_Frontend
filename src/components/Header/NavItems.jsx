@@ -22,7 +22,7 @@ export const navItems = [
   export const serviceDropdown = [
     {
       id: 1,
-      title: "Make a Review",
+      title: "Leave a Review",
       path: "./review",
       cName: "submenu-item",
     },
@@ -34,13 +34,13 @@ export const navItems = [
     },
     {
       id: 3,
-      title: "About Us",
+      title: "About",
       path: "./about",
       cName: "submenu-item",
     },
     {
       id: 4,
-      title: "Contact Us",
+      title: "Contact",
       path: "./contact",
       cName: "submenu-item",
     },

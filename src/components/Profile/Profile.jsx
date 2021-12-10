@@ -1,5 +1,6 @@
 import axios from 'axios';
 import './Profile.css';
+import SavedRecipes from '../SavedRecipes/SavedRecipes';
 import Reviews from '../Reviews/Reviews';
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
@@ -28,6 +29,7 @@ class Profile extends Component {
                     Logout Here
                 </Link>
                 <h2 className="Reviews">
+                  <SavedRecipes />
                   <Reviews />
                 </h2>
             </div>

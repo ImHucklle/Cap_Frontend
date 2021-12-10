@@ -1,4 +1,5 @@
 import React from 'react';
+import './Reviews.css';
 import Ratings from '../Ratings/Ratings';
 
 const Reviews = () => {

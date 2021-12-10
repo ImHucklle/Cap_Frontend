@@ -6,6 +6,7 @@ import Login from './Login/Login';
 import Register from './Register/Register';
 import Search  from './Search/Search';
 import Profile from './Profile/Profile';
+import AboutPage from './AboutPage/AboutPage';
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
     <Router>
       <Header />
         <Switch>
+          <Route path="/search" component={Search} />
           <Route path="/profile" component={Profile} logout={logOut}/>
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
-          <Route path="/search" component={Search} />
+          <Route path="/about" component={AboutPage} />
         </Switch>
     </Router>
   )

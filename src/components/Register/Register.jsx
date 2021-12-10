@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Register.css';
 import axios from 'axios';
 // import { Redirect } from 'react-router-dom';
 
@@ -41,7 +42,7 @@ const Register = () => {
                 <input type='text' onChange={(e)=>setLastName(e.target.value)}></input>
                 <label>Middle Name</label>
                 <input type='text' onChange={(e)=>setMiddleName(e.target.value)}></input>
-                <button type='submit'>Login</button>
+                <button className="register-button" type='submit'>Login</button>
             </form>
         </div>
     )
