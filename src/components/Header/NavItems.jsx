@@ -7,14 +7,20 @@ export const navItems = [
     },
     {
       id: 2,
-      title: "Login",
-      path: "./Login",
+      title: "Profile",
+      path: "./profile",
       cName: "nav-item",
     },
     {
       id: 3,
-      title: "Profile",
-      path: "./profile",
+      title: "Login",
+      path: "./login",
+      cName: "nav-item",
+    },
+    {
+      id: 3,
+      title: "Sign Up",
+      path: "./register",
       cName: "nav-item",
     },
   ];
@@ -36,12 +42,6 @@ export const navItems = [
       id: 3,
       title: "About",
       path: "./about",
-      cName: "submenu-item",
-    },
-    {
-      id: 4,
-      title: "Contact",
-      path: "./contact",
       cName: "submenu-item",
     },
   ];

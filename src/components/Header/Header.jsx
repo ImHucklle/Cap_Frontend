@@ -8,6 +8,13 @@ import Dropdown from "../Dropdown/Dropdown";
 
 function Header(){
   const [dropdown, setDropdown] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+
+  const logOut = ()=>{
+    localStorage.removeItem("token");
+    setCurrentUser({})
+    console.log('User has logged out')
+  }
 
   return (
     <>
@@ -18,7 +25,7 @@ function Header(){
         </Link>
         <ul className="nav-items">
           {navItems.map((item) => {
-            if (item.title === "Login") {
+            if (item.title === "Profile") {
               return (
                 <li
                   key={item.id}
@@ -38,7 +45,7 @@ function Header(){
             );
           })}
         </ul>
-        <Button />
+        <Button logout={logOut}/>
       </nav>
     </>
   );

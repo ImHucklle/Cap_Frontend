@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Header from './Header/Header';
@@ -10,20 +10,14 @@ import AboutPage from './AboutPage/AboutPage';
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState();
-
-  const logOut = ()=>{
-    localStorage.removeItem("token");
-    setCurrentUser({})
-    console.log(`${currentUser} has logged out`)
-  }
+  
   
   return (   
     <Router>
       <Header />
         <Switch>
           <Route path="/search" component={Search} />
-          <Route path="/profile" component={Profile} logout={logOut}/>
+          <Route path="/profile" component={Profile} />
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
           <Route path="/about" component={AboutPage} />

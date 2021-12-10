@@ -24,6 +24,7 @@ const Register = () => {
         console.log("Registered user info:", payload)
         let response = await axios.post('http://127.0.0.1:8000/api/auth/register/', payload);
         console.log("New user data sent: ", response.data)
+        window.location = '/login';
     };
 
 
