@@ -31,12 +31,6 @@ const Login = () => {
         getUser();
     },[jwt])
 
-    const logOut = ()=>{
-        localStorage.removeItem("token");
-        setCurrentUser({})
-        console.log("User has logged out")
-    }
-  
     const onSubmit = async (e)=>{
         e.preventDefault();
         let user ={

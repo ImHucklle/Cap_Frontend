@@ -9,6 +9,13 @@ import Profile from './Profile/Profile';
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState();
+
+  const logOut = ()=>{
+    localStorage.removeItem("token");
+    setCurrentUser({})
+    console.log(`${currentUser} has logged out`)
+  }
   
   return (   
     <Router>

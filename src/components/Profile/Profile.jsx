@@ -1,3 +1,6 @@
+import axios from 'axios';
+import './Profile.css';
+import Reviews from '../Reviews/Reviews';
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
@@ -13,13 +16,20 @@ class Profile extends Component {
         this.props.logout();
       };
 
+    componentDidMount() {
+      
+    }
+
     render(){
         return (
-            <div>
+            <div className="Profile">
                 <h1>Profile</h1>
                 <Link to="/login" onClick={this.handleLogout}>
                     Logout Here
                 </Link>
+                <h2 className="Reviews">
+                  <Reviews />
+                </h2>
             </div>
         )
     }
