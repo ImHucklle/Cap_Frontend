@@ -1,6 +1,7 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+import jwtDecode from 'jwt-decode';
 import Header from './Header/Header';
 import Login from './Login/Login';
 import Register from './Register/Register';
@@ -9,21 +10,46 @@ import Profile from './Profile/Profile';
 import AboutPage from './AboutPage/AboutPage';
 
 
-function App() {
-  
-  
-  return (   
-    <Router>
-      <Header />
-        <Switch>
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    
+    };
+  }
+
+  componentDidMount(){
+    const jwt = localStorage.getItem('token');
+    try{
+      const user = jwtDecode(jwt);
+      this.setState({user});
+    } catch {
+    }
+  }
+
+
+  render() {
+    const user = this.state.user;
+    return (   
+      <Router>
+        <Header />
+          <Switch>
           <Route path="/search" component={Search} />
-          <Route path="/profile" component={Profile} />
+          <Route path="/profile" render={props => {
+            if (!user){
+              return <Redirect to="/login" />;
+            }else {
+              return <Profile {...props} user={user} 
+              />
+            }
+          }} />
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
           <Route path="/about" component={AboutPage} />
-        </Switch>
-    </Router>
-  )
+          </Switch>
+      </Router>
+    )
+  }
 }
 
 export default App;

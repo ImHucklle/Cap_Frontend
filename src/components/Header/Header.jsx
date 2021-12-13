@@ -11,7 +11,7 @@ function Header(){
   const [currentUser, setCurrentUser] = useState();
 
   const logOut = ()=>{
-    localStorage.removeItem("token");
+    localStorage.removeItem("token", "refresh");
     setCurrentUser({})
     console.log('User has logged out')
   }

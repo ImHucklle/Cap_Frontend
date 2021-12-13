@@ -4,16 +4,17 @@ import SavedRecipes from '../SavedRecipes/SavedRecipes';
 import Reviews from '../Reviews/Reviews';
 import React from 'react';
 
-const Profile = () => {
-
+const Profile = ({ user }) => {
 
   return (
-    <div className="Profile">
-      <h1>Profile</h1>
-      <h2 className="Reviews">
-        <SavedRecipes />
-        <Reviews />
-      </h2>
+    <div className="container">
+      <div className="Profile">
+        {user && <h2>Welcome {user.username} </h2>}
+        <h4 className="Reviews">
+          <SavedRecipes />
+          <Reviews />
+        </h4>
+      </div>
     </div>
   )
 }
