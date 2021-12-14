@@ -43,7 +43,7 @@ const Register = () => {
                 <input type='text' onChange={(e)=>setLastName(e.target.value)}></input>
                 <label>Middle Name</label>
                 <input type='text' onChange={(e)=>setMiddleName(e.target.value)}></input>
-                <button type='submit'>Login</button>
+                <button type='submit'>Register</button>
             </form>
         </div>
     )

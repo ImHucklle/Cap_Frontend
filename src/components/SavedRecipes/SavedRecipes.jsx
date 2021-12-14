@@ -2,7 +2,7 @@ import React from 'react'
 
 const SavedRecipes = () => {
     return (
-        <div>
+        <div className="container">
             <h2>
                 Saved Recipes
             </h2>

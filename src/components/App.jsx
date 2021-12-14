@@ -14,7 +14,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
+      user: '',
     };
   }
 
@@ -23,8 +23,10 @@ class App extends Component {
     try{
       const user = jwtDecode(jwt);
       this.setState({user});
+      console.log(user)
     } catch {
     }
+    
   }
 
 
