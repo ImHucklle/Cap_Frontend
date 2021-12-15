@@ -25,7 +25,7 @@ function Header(){
         </Link>
         <ul className="nav-items">
           {navItems.map((item) => {
-            if (item.title === "Profile") {
+            if (item.title === "Home") {
               return (
                 <li
                   key={item.id}

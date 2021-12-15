@@ -8,6 +8,8 @@ import Register from './Register/Register';
 import Search  from './Search/Search';
 import Profile from './Profile/Profile';
 import AboutPage from './AboutPage/AboutPage';
+import Reviews from './Reviews/Reviews';
+import SavedRecipes from './SavedRecipes/SavedRecipes';
 
 
 class App extends Component {
@@ -29,7 +31,6 @@ class App extends Component {
     
   }
 
-
   render() {
     const user = this.state.user;
     return (   
@@ -47,6 +48,8 @@ class App extends Component {
           }} />
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
+          <Route path="/saved" component={SavedRecipes} />
+          <Route path="/review" component={Reviews} />
           <Route path="/about" component={AboutPage} />
           </Switch>
       </Router>

@@ -1,70 +1,43 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import './Reviews.css';
+import Ratings from '../Ratings/Ratings';
+import axios from 'axios';
 
-class Reviews extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          recipe_id: this.recipe_id,
-          comment: "",
-          likes: 0,
-          dislikes: 0,
-        };
-        this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
-      }
-    
-      onChange = (event) => {
-        this.setState({
-          [event.target.name]: event.target.value,
-        });
-      };
-    
-      onSubmit = (event) => {
-        event.preventDefault();
-
-        const { comment } = this.state
-     
-        if (!comment || (comment && comment.trim() === '')) {
-            alert('Cannot submit an empty comment.')
-            return false
-        }
-
-        const newComment = {
-          recipe_id: this.props.recipe_id,
-          comment: comment,
-          likes: 0,
-          dislikes: 0,
-        };
-        this.props.addComment(newComment);
-        this.setState(
-          {
-            comment: '',
-          },
-        );
-      };
-
-      render() {
-        return (
-          <React.Fragment>
-            <div className="CommentButton" >
-              <form onSubmit={this.onSubmit}>
-                <input 
-                  className="inputfield"
-                  id="comment_form text"
-                  type="text"
-                  name="comment"
-                  placeholder="Write a Comment"
-                  onChange={this.onChange}
-                  value={this.state.comment}
-                />
-                <button type="submit" className="btn btn-primary mt-2 ms-2 me-2 ">Submit Comment</button>
-              </form>
-            </div>
-          </React.Fragment>
-        );
-      }
+const Reviews = () => {
+  const [commentBox, setCommentBox] = useState("");
+  const [recipe, setRecipe] = useState("");
+ 
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let review = {
+      "comment_box": commentBox,
+      "recipe": recipe
     }
+    console.log("Content", review)
+    let response = await axios.post('http://127.0.0.1:8000/reviews/', review);
+    console.log("Review sent to db:", response.data)
+    window.location = '/search';
+  };
 
+  return (
+    <React.Fragment>
+      <div className="review-box" >
+        <form onSubmit={onSubmit}>
+          <textarea
+            className="review-box"
+            type="text"
+            rows="6" cols="25"
+            placeholder="Write a Review"
+            onChange={(e)=>setCommentBox(e.target.value)}
+          />
+          <label>Name of Recipe</label>
+          <input type='text' onChange={(e)=>setRecipe(e.target.value)}></input>
+            <Ratings />
+            <button type="submit" className="btn btn-primary mt-2 ms-2 me-2 ">Submit Review</button>
+        </form>
+      </div>
+    </React.Fragment>
+  );
+}
 
 export default Reviews;

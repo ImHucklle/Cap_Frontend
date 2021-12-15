@@ -4,8 +4,8 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 const Login = () => {
-  const[userName, setUserName]= useState("");
-  const[password, setPassword]= useState("");
+  const[userName, setUserName] = useState("");
+  const[password, setPassword] = useState("");
   const [currentUser, setCurrentUser] = useState();
   const [jwt, setJwt] = useState();
 
@@ -34,7 +34,7 @@ const Login = () => {
 
   const onSubmit = async (e)=>{
     e.preventDefault();
-      let user ={
+      let user = {
         "username": userName,
         "password": password,
       }

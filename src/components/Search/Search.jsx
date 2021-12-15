@@ -24,7 +24,6 @@ const Search = () => {
         } else {
             setAlert('Cant Leave Search Blank')
         }
-        
     }
 
     const onChange = (e) => {

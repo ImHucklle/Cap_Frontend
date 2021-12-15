@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from "react-router-dom";
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
 
 const Recipes = ({recipe}) => {
@@ -9,9 +10,10 @@ const Recipes = ({recipe}) => {
         <div className="recipe">
             <h2>{label}</h2>
             <img src={image} alt={label} />
-            <a href={url} target="_blank" rel="noopener noreferrer">URL</a>
+            <a className="url-btn" href={url} target="_blank" rel="noopener noreferrer">URL</a>
             <button onClick={() => setToggle(!toggle)}>Ingredients</button>
             {toggle && <RecipeDetails ingredients={ingredients}/>}
+            <Link to="/review">Leave a Review</Link>
         </div>
     );
 }

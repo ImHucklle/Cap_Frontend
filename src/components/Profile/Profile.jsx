@@ -12,9 +12,6 @@ const Profile = ({ user }) => {
       <div className="Profile">
       {user && <h2>Welcome {user.username} </h2>}
         <h4 className="Reviews">
-          <SavedRecipes />
-          <Reviews />
-          <Ratings />
         </h4>
       </div>
     </div>
