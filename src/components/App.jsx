@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import jwtDecode from 'jwt-decode';
 import Header from './Header/Header';
@@ -10,6 +10,7 @@ import Profile from './Profile/Profile';
 import AboutPage from './AboutPage/AboutPage';
 import Reviews from './Reviews/Reviews';
 import SavedRecipes from './SavedRecipes/SavedRecipes';
+// import axios from 'axios';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
     super(props);
     this.state = {
       user: '',
+      reviews:''
     };
   }
 
@@ -28,24 +30,17 @@ class App extends Component {
       console.log(user)
     } catch {
     }
-    
   }
 
   render() {
-    const user = this.state.user;
     return (   
       <Router>
         <Header />
           <Switch>
           <Route path="/search" component={Search} />
-          <Route path="/profile" render={props => {
-            if (!user){
-              return <Redirect to="/login" />;
-            }else {
-              return <Profile {...props} user={user} 
-              />
-            }
-          }} />
+          <Route path="/profile" render={(props) => (
+            <Profile {...props} />)}
+            />
           <Route path="/login" component={Login}/>        
           <Route path="/register" component={Register} />
           <Route path="/saved" component={SavedRecipes} />
