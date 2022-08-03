@@ -3,6 +3,9 @@ import './Register.css';
 import axios from 'axios';
 // import { Redirect } from 'react-router-dom';
 
+// ========================================================================== //
+// Hooks
+
 const Register = () => {
     const[userName, setUserName]= useState("");
     const[password, setPassword]= useState("");
@@ -10,6 +13,9 @@ const Register = () => {
     const[firstName, setFirstName] = useState("");
     const[lastName, setLastName] = useState("");
     const[middleName, setMiddleName] = useState("");
+
+// ========================================================================== //
+// Setting payload for POST request
 
     const onSubmit = async (e)=>{
         e.preventDefault();
@@ -27,6 +33,8 @@ const Register = () => {
         window.location = '/login';
     };
 
+// ========================================================================== //
+// Rendering    
 
     return (
         <div className="Register">
